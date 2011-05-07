@@ -1,0 +1,47 @@
+<?php $job = $this->job ?>
+
+<div class="mygengo-job">
+  <h2> Job: <?= $job->job_id?>(<?= $job->slug?>)</h2>
+</div>  
+                                                            
+<table class="general">
+  <?= $this->partial('jobs/_job.phtml', array('job' => $job)) ?>
+</table>
+
+<div class='mygengo-form'>
+  <div class='left'>
+    Body
+    <br>
+    <textarea cols="40" id="body_src" name="body_src" rows="11"><?= $job->body_src ?></textarea>
+    <br>
+  </div>
+</div>
+<div class='clear'></div>
+
+<div class='mygengo-box'>
+  <h4>Feedback</h4>
+  <p>
+    Rating:
+    <?= $job->feedback->rating ?>
+  </p>
+  <p>
+    For translator:
+    <?= $job->feedback->for_translator ?>
+  </p>
+</div>
+<br>             
+
+<div class='mygengo-box'>
+  <h4>Revisions</h4>
+  <ul class='mygengo-revisions'>
+    <li>      
+      <?php foreach ($job->revisions as $k => $revision): ?>
+        <a href="<?= $this->url(array('controller'=>'jobs', 'action' => 'revision', 'id' => $job->job_id, 'rev_id' => $revision->rev_id, 'module' => 'mygengo'), null, true) ?>">
+          <?= $revision->rev_id ?>
+        </a>
+      <?php endforeach ?>
+    </li>
+  </ul>
+</div>
+
+<?= $this->partial('jobs/_comments.phtml', array('job' => $job)) ?>

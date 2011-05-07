@@ -1,0 +1,10 @@
+<h3>Jobs listing</h3>
+
+<table class="general">
+  <?php foreach ($this->jobs as $job): ?>
+    <?= $this->partial('jobs/_job.phtml', array('job' => $job)) ?>
+  <?php endforeach ?>  
+</table>
+
+<br />
+<a href="<?= $this->url(array('controller'=>'jobs', 'action' => 'new', 'module' => 'mygengo'), null, true) ?>">Create a job</a>

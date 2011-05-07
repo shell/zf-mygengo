@@ -1,0 +1,43 @@
+<?php $job = $this->job ?>
+
+<h3>Rejection form</h3>
+<form accept-charset="UTF-8" action="<?= $this->url(array('controller'=>'jobs', 'action' => 'reject_post', 'id' => $job->job_id, 'module' => 'mygengo'), null, true) ?>" method="post">
+  <div class='field'>
+    Job #<a href="/mygengo/jobs/16775">16775</a>
+  </div>
+  <div class='field'>
+    Whould you like to cancel the translation?
+    <br>
+    <input id="job_follow_up_cancel" name="job[follow_up]" type="radio" value="cancel" />
+    Yes, please cancel and refund me
+    <br>
+    <input id="job_follow_up_requeue" name="job[follow_up]" type="radio" value="requeue" />
+    No, please have another translator finish the job
+  </div>
+  <div class='field'>
+    Rejection reason
+    <br>
+    <input id="job_reason_quality" name="job[reason]" type="radio" value="quality" />
+    Poor quality of translation
+    <br>
+    <input id="job_reason_missing" name="job[reason]" type="radio" value="incomplete" />
+    Missing of incomplete translation
+    <br>
+    <input id="job_reason_missing" name="job[reason]" type="radio" value="other" />
+    Other (please describe beliw)
+  </div>
+  <div class='field'>
+    Comment
+    <br>
+    <textarea cols="40" id="job_comment" name="job[comment]" rows="2"></textarea>
+  </div>
+  <div class='field'>
+    <img alt="Captcha" src="<?= $job->captcha_url ?>" />
+    <br>
+    <input id="job_captcha" name="job[captcha]" type="text" />
+  </div>
+  <input id="job_submit" name="commit" type="submit" value="Reject translation" />
+  |
+  <a href="<?= $this->url(array('controller'=>'jobs','action'=>'show','id'=>$this->job_id, 'module' => 'mygengo'), null, true)?>">Back</a>
+
+</form>

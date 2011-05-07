@@ -1,0 +1,31 @@
+<?php $job = $this->job ?>
+<div class='mygengo-box'>                     
+<?php if (count($job->comments) > 0) {?>
+  <h4>Comments</h4>
+  <table class="mygento-comments">
+  <?php foreach ($job->comments as $comment) { ?>
+    <tr>
+      <td colspan=2>
+        <?= $comment->body ?>
+        <br />
+        by <?= $comment->author ?>
+        |
+        <?= new Zend_Date($comment->ctime) ?>
+  <?php } ?>
+  </table>
+<?php } else {?>
+  No comments
+<?php } ?>
+
+<br />
+
+<h3>Post comment</h3>
+<form accept-charset="UTF-8" action="<?= $this->url(array('controller'=>'jobs', 'action' => 'create_comment', 'id' => $job->job_id, 'module' => 'mygengo'), null, true) ?>" method="post">
+  <div class='field'>
+    Comment:
+    <br />
+    <textarea cols="40" id="" name="body" rows="2"></textarea>
+  </div>
+  <input id="" name="commit" type="submit" value="Post" />
+</form>
+</div>

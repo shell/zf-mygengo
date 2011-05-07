@@ -1,0 +1,23 @@
+<h1>Account Info</h1>
+
+<div class="mygengo-box">
+  <div class="account-balance">
+    <h4>Credit balance</h4>
+    <?= $this->balance ?> credits                             
+  </div>
+</div>
+
+<div class="mygengo-box">
+  <div class="account-balance">
+    <h4>Account Stats</h4>
+    <p> 
+      Credits spent:       
+      <?= $this->stats->credits_spent ?>      
+    </p>
+    <p>
+      User Since:
+      <?= $this->user_since ?>
+    </p>
+  </div>
+</div>
+<a href="http://mygengo.com/account/top_up">Top Up</a>

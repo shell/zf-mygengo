@@ -1,0 +1,78 @@
+<h3>New translation order</h3>
+
+<form accept-charset="UTF-8" action="<?= $this->url(array('controller'=>'jobs', 'action' => 'create', 'module' => 'mygengo'), null, true) ?>" class="mygengo-form" method="post">
+  <div class='field'>
+    Slug
+    <br>
+    <input id="job_slug" name="job[slug]" size="30" type="text" />
+  </div>
+  <div class='float'>
+    <div class='field'>
+      Text
+      <br>
+      <textarea cols="40" id="job_body_src" name="job[body_src]" rows="20"></textarea>
+    </div>
+  </div>
+  <div>
+    <div class='field float'>
+      Translate from
+      <br>
+      <select id="job_lc_src" name="job[lc_src]">     
+        <?php foreach ($this->lc_src as $k => $v): ?>
+          <option value="<?= $k ?>"><?= $v ?></option>
+        <?php endforeach ?>
+      </select>
+    </div>
+    <div class='field'>
+      Translate to
+      <br>
+      <select id="job_lc_tgt" name="job[lc_tgt]">
+        <?php foreach ($this->lc_tgt as $k => $v): ?>
+          <option value="<?= $k ?>"><?= $v ?></option>
+        <?php endforeach ?>
+      </select>
+    </div>
+    <div class='field'>
+      Tier
+      <br>
+      <input id="job_tier_machine" name="job[tier]" type="radio" value="machine" />
+      Machine
+      <input id="job_tier_standard" name="job[tier]" type="radio" value="standard" />
+      Standard
+      <input id="job_tier_pro" name="job[tier]" type="radio" value="pro" />
+      Pro
+      <input id="job_tier_ultra" name="job[tier]" type="radio" value="ultra" />
+      Ultra
+    </div>
+    <div class='hidden' id='comment_area'>
+      Comment
+      <br>
+      <textarea cols="40" id="job_comment" name="job[comment]" rows="7"></textarea>
+    </div>
+    <div class='field' id='comment_button'>
+      <input onclick="try {
+      $('#comment_area').show();
+      $('#comment_button').hide();
+      } catch (e) { };" type="button" value="Add comment" />  
+    </div>
+    <div class='field'>
+      <input name="job[as_group]" type="hidden" value="0" />
+      <input id="job_as_group" name="job[as_group]" type="checkbox" value="1" />
+      As group
+    </div>
+    <div class='field'>
+      <input name="job[auto_approve]" type="hidden" value="0" />
+      <input id="job_auto_approve" name="job[auto_approve]" type="checkbox" value="1" />
+      Auto approve and publish jobs
+    </div>
+    <div class='field'>
+      Callback Url
+      <br>
+      <input id="job_callback_url" name="job[callback_url]" size="30" type="text" />
+    </div>
+    <div class='field'>
+      <input id="job_submit" name="commit" type="submit" value="Order" />
+    </div>
+  </div>
+</form>
+<div class='clear'></div>

@@ -1,0 +1,7 @@
+<h2>Job: <?= $this->job_id ?></h2>
+<p>
+  Source:
+  <br>
+  <?= $this->revision->body_tgt ?>
+</p>
+<a href="<?= $this->url(array('controller'=>'jobs','action'=>'show','id'=>$this->job_id, 'module' => 'mygengo'), null, true)?>">Back</a>

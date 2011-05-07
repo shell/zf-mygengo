@@ -1,0 +1,38 @@
+<?php $job = $this->job ?>
+<tr>
+  <td>
+    Job #<a href="<?= $this->url(array('controller'=>'jobs','action'=>'show','id'=>$job->job_id, 'module' => 'mygengo'), null, true) ?>">
+      <?= $job->job_id ?></a>
+    <br />
+    <?= $job->slug?>
+  </td>
+  <td>
+    <?= $job->status?>
+    <br />
+    <?= $job->tier?>
+  </td>  
+  <td>
+    <?= count($job->comments) ?> comments
+    <br />
+    <?= $job->lc_src?> &raquo; <?= $job->lc_tgt?>
+  </td>    
+  <td>
+    <?= $job->credits ?> credits
+    <br />
+    <?= $job->unit_count ?> words
+  </td>  
+  <td>
+    <?= new Zend_Date($job->ctime)?>
+    <br />
+    <?= $job->eta ?>
+  </td>  
+  <td>
+    Actions
+    <br />
+    <a href="<?= $this->url(array('controller'=>'jobs','action'=>'cancel','id'=>$job->job_id, 'module' => 'mygengo'), null, true) ?>">Cancel</a>
+    <?php if ($job->status == 'reviewable'):?>
+      <a href="<?= $this->url(array('controller'=>'jobs','action'=>'review','id'=>$job->job_id, 'module' => 'mygengo'), null, true) ?>">Review</a>
+    <?php endif ?>
+    <a href="<?= $this->url(array('controller'=>'jobs','action'=>'show','id'=>$job->job_id, 'module' => 'mygengo'), null, true) ?>">View</a>
+  </td>  
+</tr>
