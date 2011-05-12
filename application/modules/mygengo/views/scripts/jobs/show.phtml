@@ -15,6 +15,14 @@
     <textarea cols="40" id="body_src" name="body_src" rows="11"><?= $job->body_src ?></textarea>
     <br>
   </div>
+  <? if ($job->status == 'approved') {?>
+  <div class='left'>
+    Body TGT
+    <br>
+    <textarea cols="40" id="body_src" name="body_src" rows="11"><?= $job->body_tgt ?></textarea>
+    <br>
+  </div>
+  <? } ?>
 </div>
 <div class='clear'></div>
 
