@@ -44,7 +44,7 @@
     
   * Unpack contents in your quickstart folder
   
-        cp -R zf-mygengo/ quickstart/
+        cp -R zf-mygengo/* quickstart/
   
   * Put your API and Private Key to `quickstart/application/modules/configs/mygengo.ini`
     
@@ -55,6 +55,11 @@
         autoloaderNamespaces[] = "Add_"    
         autoloaderNamespaces[] = "myGengo_"    
         mygengo.resources.layout.layout = "mygengo"                            
+        
+  * create assets directory public/images/mygengo
+        
+        cd quickstart
+        mkdir -p public/images/mygengo
     
   * Configure your server's htdocs to `~/Sites` or as in my case /Applications/MAMP/htdocs
   
