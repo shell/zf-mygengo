@@ -71,6 +71,11 @@
 
   By default routes will be nested in /mygengo path
   Example (<http://localhost:3000/mygengo/>)
+  
+## Screencasts
+  Installation(<http://bit.ly/lR7VgM>)
+  
+  Usage(<http://bit.ly/kDp28b>)
 
 ## TODO               
 * placeholder
